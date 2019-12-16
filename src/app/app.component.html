@@ -18,10 +18,10 @@
     <div class="collapse navbar-collapse dual-collapse2" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+          <a class="nav-link" routerLink="/login" routerLinkActive="active" *ngIf="!_auth.isLogIn()">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/logout">Logout</a>
+          <a class="nav-link" *ngIf="_auth.isLogIn()" style="cursor:pointer" (click)="_auth.logOut()">Logout</a>
         </li>
       </ul>
     </div>

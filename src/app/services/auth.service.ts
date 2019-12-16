@@ -1,6 +1,7 @@
-import { Injectable }               from '@angular/core';
-import { HttpClient, HttpHeaders }  from '@angular/common/http';
-import { Observable }               from 'rxjs';
+import { Injectable }                   from '@angular/core';
+import { HttpClient, HttpHeaders }      from '@angular/common/http';
+import { Observable }                   from 'rxjs';
+import { Router }                       from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -18,7 +19,9 @@ const clientSecret    = "c7257eb71a564034f9419ee651c7d0e5f7aa6bfbd18bafb5c5c033b
 
 export class AuthService {
 
-  constructor(private _http:HttpClient) { }
+  constructor(private _http:HttpClient, private _router:Router) { }
+
+  redirectUrl:string = "/";
 
   login(email:string, password:string):Observable<any>{
     const login:string = "oauth/token";
@@ -37,10 +40,16 @@ export class AuthService {
   }
 
   saveToken(token:string):void{
-    localStorage.set("token", token);
+    localStorage.setItem("token", token);
   }
 
   isLogIn(): boolean{
     return !!localStorage.getItem("token");
+  }
+
+  logOut(){
+    this.redirectUrl = "/";
+    localStorage.removeItem("token");
+    this._router.navigateByUrl(this.redirectUrl);
   }
 }
