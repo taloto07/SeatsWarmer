@@ -15,13 +15,23 @@ export class LoginComponent implements OnInit {
 
   constructor(private _auth: AuthService) { }
 
+  loginMessage:string = "";
+
   ngOnInit() {
   }
 
   login(){
     var email = this.loginForm.controls.email.value;
     var password = this.loginForm.controls.password.value;
-    this._auth.login(email, password);
+    this._auth.login(email, password)
+      .subscribe(
+        res => {
+          this._auth.saveToken(res.token);
+        },
+        err => {
+          this.loginMessage = "Credentials you privided is not correct!";
+        }
+      )
   }
 
 }
