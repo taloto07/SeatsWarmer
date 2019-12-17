@@ -1,0 +1,8 @@
+<div>
+  <button class="btn btn-lg"
+          (click)="increaseLevel()"
+          [ngClass]="level > 0 ? 'btn-danger' : 'btn-secondary'"
+          [disabled]="disabled">
+    {{level}}
+  </button>
+</div>

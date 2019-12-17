@@ -11,13 +11,15 @@ import { HomeComponent }                        from './components/home/home.com
 import { TokenInterceptorService }              from "./services/token-interceptor.service";
 import {AuthService} from "./services/auth.service";
 import {AuthGuard} from "./guards/auth.guard";
+import { SeatItemComponent } from './components/seats/seat-item/seat-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SeatsComponent,
-    HomeComponent
+    HomeComponent,
+    SeatItemComponent
   ],
   imports: [
     BrowserModule,
