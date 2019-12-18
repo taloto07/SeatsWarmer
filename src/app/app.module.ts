@@ -8,10 +8,12 @@ import { AppComponent }                         from './app.component';
 import { LoginComponent }                       from './components/login/login.component';
 import { SeatsComponent }                       from './components/seats/seats.component';
 import { HomeComponent }                        from './components/home/home.component';
+import { SeatItemComponent }                    from './components/seats/seat-item/seat-item.component';
+
 import { TokenInterceptorService }              from "./services/token-interceptor.service";
-import {AuthService} from "./services/auth.service";
-import {AuthGuard} from "./guards/auth.guard";
-import { SeatItemComponent } from './components/seats/seat-item/seat-item.component';
+import {AuthService}                            from "./services/auth.service";
+import {AuthGuard}                              from "./guards/auth.guard";
+import { CommandService }                       from "./services/command.service";
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { SeatItemComponent } from './components/seats/seat-item/seat-item.compon
   providers: [
     AuthService,
     AuthGuard,
+    CommandService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

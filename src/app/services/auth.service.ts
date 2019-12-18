@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders }      from '@angular/common/http';
 import { Observable }                   from 'rxjs';
 import { Router }                       from '@angular/router';
 
+// header don't need this to login
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -36,7 +37,7 @@ export class AuthService {
     };
 
 
-    return this._http.post(url, data, httpOptions);
+    return this._http.post(url, data);
   }
 
   saveToken(token:string):void{

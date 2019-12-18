@@ -1,8 +1,9 @@
 <div>
+  {{seat.name}}<br/>
   <button class="btn btn-lg"
           (click)="increaseLevel()"
-          [ngClass]="level > 0 ? 'btn-danger' : 'btn-secondary'"
-          [disabled]="disabled">
-    {{level}}
+          [ngClass]="seat.level > 0 ? 'btn-danger' : 'btn-secondary'"
+          [disabled]="disableSeats">
+    {{ seat.level }}
   </button>
 </div>
