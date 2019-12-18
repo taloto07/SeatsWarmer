@@ -10,6 +10,6 @@ import { Router }       from '@angular/router';
 export class AppComponent {
   title = 'SeatsWarmer';
 
-  constructor(private _auth: AuthService, private _router:Router) {
+  constructor(public _auth: AuthService, private _router:Router) {
   }
 }
